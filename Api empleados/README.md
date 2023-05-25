@@ -1,4 +1,3 @@
-```markdown
 # API de Gestión de Empleados
 
 La API de Gestión de Empleados proporciona puntos finales para administrar los datos de los empleados, permitiéndote realizar operaciones CRUD (Crear, Leer, Actualizar, Eliminar) en los registros de los empleados.
