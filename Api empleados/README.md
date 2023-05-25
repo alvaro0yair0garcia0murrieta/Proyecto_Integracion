@@ -121,8 +121,9 @@ Los siguientes puntos finales están disponibles en la API:
   ```
   PUT /api/empleados/3
   Content-Type: application
+  ```
 
-/json
+```json
   
   {
     "nombre": "Ana Thompson",
@@ -170,7 +171,4 @@ Los siguientes puntos finales están disponibles en la API:
 ## Licencia
 
 Este proyecto está licenciado bajo la [Licencia MIT](LICENSE).
-```
-
-Siéntete libre de personalizar el contenido según tus necesidades específicas y agregar cualquier sección o información adicional que consideres relevante.
 ![alt text](http://3.bp.blogspot.com/-x2uhTuWFGoc/VmfELLZ0d5I/AAAAAAAAMWM/k_qBiNiQTk4/s1600/Animal-01.jpg)
