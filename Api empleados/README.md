@@ -1,71 +1,62 @@
-# Proyecto_Integracion
-
-## Modulo de empleados
- este empleado  es un crud simple donde se crean, se borran y se actualizan
-
-![alt text](http://3.bp.blogspot.com/-x2uhTuWFGoc/VmfELLZ0d5I/AAAAAAAAMWM/k_qBiNiQTk4/s1600/Animal-01.jpg)
-
-Certainly! Here's an example of a README.md file for your API:
-
 ```markdown
-# Employee Management API
+# API de Gestión de Empleados
 
-The Employee Management API provides endpoints to manage employee data, allowing you to perform CRUD operations (Create, Read, Update, Delete) on employee records.
+La API de Gestión de Empleados proporciona puntos finales para administrar los datos de los empleados, permitiéndote realizar operaciones CRUD (Crear, Leer, Actualizar, Eliminar) en los registros de los empleados.
 
-## Prerequisites
+## Prerrequisitos
 
-- Java Development Kit (JDK) 8 or later
+- Java Development Kit (JDK) 8 o superior
 - Maven
 
-## Getting Started
+## Empezando
 
-1. Clone the repository:
-
-   ```bash
-   git clone https://github.com/your-username/employee-management-api.git
-   ```
-
-2. Navigate to the project directory:
+1. Clona el repositorio:
 
    ```bash
-   cd employee-management-api
+   git clone https://github.com/tu-nombre-de-usuario/api-gestion-empleados.git
    ```
 
-3. Build the project:
+2. Navega hasta el directorio del proyecto:
+
+   ```bash
+   cd api-gestion-empleados
+   ```
+
+3. Compila el proyecto:
 
    ```bash
    mvn clean install
    ```
 
-4. Run the application:
+4. Ejecuta la aplicación:
 
    ```bash
    mvn spring-boot:run
    ```
 
-5. The API will be available at `http://localhost:8080/api/employees`.
+5. La API estará disponible en `http://localhost:8080/api/empleados`.
 
-## API Endpoints
+## Puntos finales de la API
 
-The following endpoints are available in the API:
+Los siguientes puntos finales están disponibles en la API:
 
-- `GET /api/employees`: Retrieve a list of all employees.
-- `POST /api/employees`: Create a new employee.
-- `GET /api/employees/{id}`: Retrieve a specific employee by ID.
-- `PUT /api/employees/{id}`: Update a specific employee by ID.
-- `DELETE /api/employees/{id}`: Delete a specific employee by ID.
+- `GET /api/empleados`: Obtener una lista de todos los empleados.
+- `POST /api/empleados`: Crear un nuevo empleado.
+- `GET /api/empleados/{id}`: Obtener un empleado específico por su ID.
+- `PUT /api/empleados/{id}`: Actualizar un empleado específico por su ID.
+- `DELETE /api/empleados/{id}`: Eliminar un empleado específico por su ID.
 
-### Request/Response Examples
+### Ejemplos de solicitud/respuesta
 
-#### Retrieve a list of all employees
+#### Obtener una lista de todos los empleados
 
-- Request:
+- Solicitud:
 
   ```
-  GET /api/employees
+  GET /api/empleados
   ```
 
-- Response:
+- Respuesta:
 
   ```json
   HTTP/1.1 200 OK
@@ -74,41 +65,41 @@ The following endpoints are available in the API:
   [
     {
       "id": 1,
-      "name": "John Doe",
-      "email": "john.doe@example.com",
-      "phoneNumber": "+1 123-456-7890",
-      "department": "IT",
-      "designation": "Software Engineer"
+      "nombre": "Juan Pérez",
+      "email": "juan.perez@example.com",
+      "telefono": "+1 123-456-7890",
+      "departamento": "IT",
+      "cargo": "Ingeniero de Software"
     },
     {
       "id": 2,
-      "name": "Jane Smith",
-      "email": "jane.smith@example.com",
-      "phoneNumber": "+1 987-654-3210",
-      "department": "HR",
-      "designation": "HR Manager"
+      "nombre": "María Gómez",
+      "email": "maria.gomez@example.com",
+      "telefono": "+1 987-654-3210",
+      "departamento": "Recursos Humanos",
+      "cargo": "Gerente de RRHH"
     }
   ]
   ```
 
-#### Create a new employee
+#### Crear un nuevo empleado
 
-- Request:
+- Solicitud:
 
   ```
-  POST /api/employees
+  POST /api/empleados
   Content-Type: application/json
   
   {
-    "name": "Alice Johnson",
-    "email": "alice.johnson@example.com",
-    "phoneNumber": "+1 555-123-4567",
-    "department": "Marketing",
-    "designation": "Marketing Specialist"
+    "nombre": "Ana Torres",
+    "email": "ana.torres@example.com",
+    "telefono": "+1 555-123-4567",
+    "departamento": "Marketing",
+    "cargo": "Especialista en Marketing"
   }
   ```
 
-- Response:
+- Respuesta:
 
   ```json
   HTTP/1.1 201 Created
@@ -116,32 +107,34 @@ The following endpoints are available in the API:
   
   {
     "id": 3,
-    "name": "Alice Johnson",
-    "email": "alice.johnson@example.com",
-    "phoneNumber": "+1 555-123-4567",
-    "department": "Marketing",
-    "designation": "Marketing Specialist"
+    "nombre": "Ana Torres",
+    "email": "ana.torres@example.com",
+    "telefono": "+1 555-123-4567",
+    "departamento": "Marketing",
+    "cargo": "Especialista en Marketing"
   }
   ```
 
-#### Update an employee
+#### Actualizar un empleado
 
-- Request:
+- Solicitud:
 
   ```
-  PUT /api/employees/3
-  Content-Type: application/json
+  PUT /api/empleados/3
+  Content-Type: application
+
+/json
   
   {
-    "name": "Alice Thompson",
-    "email": "alice.thompson@example.com",
-    "phoneNumber": "+1 555-987-6543",
-    "department": "Marketing",
-    "designation": "Senior Marketing Specialist"
+    "nombre": "Ana Thompson",
+    "email": "ana.thompson@example.com",
+    "telefono": "+1 555-987-6543",
+    "departamento": "Marketing",
+    "cargo": "Especialista Senior en Marketing"
   }
   ```
 
-- Response:
+- Respuesta:
 
   ```json
   HTTP/1.1 200 OK
@@ -149,37 +142,36 @@ The following endpoints are available in the API:
   
   {
     "id": 3,
-    "name": "Alice Thompson",
-    "email": "alice.thompson@example.com",
-    "phoneNumber
-
-": "+1 555-987-6543",
-    "department": "Marketing",
-    "designation": "Senior Marketing Specialist"
+    "nombre": "Ana Thompson",
+    "email": "ana.thompson@example.com",
+    "telefono": "+1 555-987-6543",
+    "departamento": "Marketing",
+    "cargo": "Especialista Senior en Marketing"
   }
   ```
 
-#### Delete an employee
+#### Eliminar un empleado
 
-- Request:
+- Solicitud:
 
   ```
-  DELETE /api/employees/3
+  DELETE /api/empleados/3
   ```
 
-- Response:
+- Respuesta:
 
   ```json
   HTTP/1.1 204 No Content
   ```
 
-## Contributing
+## Contribuciones
 
-Contributions are welcome! If you find any issues or have suggestions for improvements, please feel free to submit a pull request.
+¡Las contribuciones son bienvenidas! Si encuentras algún problema o tienes sugerencias de mejoras, no dudes en enviar un pull request.
 
-## License
+## Licencia
 
-This project is licensed under the [MIT License](LICENSE).
+Este proyecto está licenciado bajo la [Licencia MIT](LICENSE).
 ```
 
-Feel free to customize the content based on your specific project and add any additional sections or information that you think would be relevant.
+Siéntete libre de personalizar el contenido según tus necesidades específicas y agregar cualquier sección o información adicional que consideres relevante.
+![alt text](http://3.bp.blogspot.com/-x2uhTuWFGoc/VmfELLZ0d5I/AAAAAAAAMWM/k_qBiNiQTk4/s1600/Animal-01.jpg)
