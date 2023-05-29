@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" targetNamespace="http://airopuerto.com/vuelos" xmlns:tns="http://airopuerto.com/vuelos" elementFormDefault="qualified">
+
+    <!-- FlightStatusRequest -->
+    <xs:element name="EstadoRequest">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="NumeroDeVuelo" type="xs:int"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <!-- FlightStatusResponse -->
+    <xs:element name="EstadoResponse">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="Estado" type="xs:string"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <!-- BookFlightRequest -->
+    <xs:element name="ReservaRequest">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="CompaniaDeVuelo" type="xs:string"/>
+                <xs:element name="NombrePasajero" type="xs:string"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <!-- BookFlightResponse -->
+    <xs:element name="ReservaResponse">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="ConfirmacionNumero" type="xs:string"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+</xs:schema>
