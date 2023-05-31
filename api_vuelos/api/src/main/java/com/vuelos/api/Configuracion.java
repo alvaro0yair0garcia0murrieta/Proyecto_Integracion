@@ -36,7 +36,7 @@ public class Configuracion extends WsConfigurerAdapter {
         DefaultWsdl11Definition wsdl = new DefaultWsdl11Definition();
         wsdl.setPortTypeName("VuelosPort");        
         wsdl.setLocationUri("/ws");   
-        wsdl.setTargetNamespace("https://t4is.uv.mx/alumno");        
+        wsdl.setTargetNamespace("http://airopuerto.com/vuelos");        
         wsdl.setSchema(vuelosSchema);
         return wsdl;
     }

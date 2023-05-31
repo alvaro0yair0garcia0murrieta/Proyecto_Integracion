@@ -13,7 +13,9 @@ public class Vuelo {
 
     private String Compania;
     private String pasagero;
-
+    
+    public Vuelo(){}
+    
     public Vuelo(String compania, String pasagero) {
         Compania = compania;
         this.pasagero = pasagero;
