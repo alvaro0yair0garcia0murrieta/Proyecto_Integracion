@@ -1,4 +1,4 @@
-package com.airopuerto.empleados;
+package com.aeropuerto.empleados;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -13,18 +13,18 @@ public class Empleado{
 
     private String nombre;
     private  String correo;
-    private  String numeroTefonico;
-    private String depatamento;
+    private  String numeroTelefonico;
+    private String departamento;
     private String puesto;
 
     public Empleado(){}
 
-    public Empleado(String nombre, String correo, String numeroTefonico, String depatamento, String puesto) {
+    public Empleado(String nombre, String correo, String numeroTelefonico, String departamento, String puesto) {
         
         this.nombre = nombre;
         this.correo = correo;
-        this.numeroTefonico = numeroTefonico;
-        this.depatamento = depatamento;
+        this.numeroTelefonico = numeroTelefonico;
+        this.departamento = departamento;
         this.puesto = puesto;
     }
    
@@ -40,17 +40,17 @@ public class Empleado{
     public void setCorreo(String correo) {
         this.correo = correo;
     }
-    public String getNumeroTefonico() {
-        return numeroTefonico;
+    public String getNumeroTelefonico() {
+        return numeroTelefonico;
     }
-    public void setNumeroTefonico(String numeroTefonico) {
-        this.numeroTefonico = numeroTefonico;
+    public void setNumeroTelefonico(String numeroTefonico) {
+        this.numeroTelefonico = numeroTefonico;
     }
-    public String getDepatamento() {
-        return depatamento;
+    public String getDepartamento() {
+        return departamento;
     }
-    public void setDepatamento(String depatamento) {
-        this.depatamento = depatamento;
+    public void setDepartamento(String depatamento) {
+        this.departamento = depatamento;
     }
     public String getPuesto() {
         return puesto;

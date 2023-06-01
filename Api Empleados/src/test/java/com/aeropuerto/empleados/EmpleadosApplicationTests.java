@@ -1,4 +1,4 @@
-package com.airopuerto.empleados;
+package com.aeropuerto.empleados;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;

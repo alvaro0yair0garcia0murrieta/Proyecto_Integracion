@@ -1,4 +1,4 @@
-package com.airopuerto.empleados;
+package com.aeropuerto.empleados;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -62,8 +62,8 @@ public class EmpleadosApplication {
 		Empleado empTemp = repositorio.findByNombre(nombre);
 		empTemp.setCorreo(empleado.getCorreo());
 		empTemp.setNombre(empleado.getNombre());
-		empTemp.setNumeroTefonico(empleado.getNumeroTefonico());
-		empTemp.setDepatamento(empleado.getDepatamento());
+		empTemp.setNumeroTelefonico(empleado.getNumeroTelefonico());
+		empTemp.setDepartamento(empleado.getDepartamento());
 		empTemp.setPuesto(empleado.getPuesto());
 		empTemp = repositorio.save(empTemp);
 		return empTemp;
