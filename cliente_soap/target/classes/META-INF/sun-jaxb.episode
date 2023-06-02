@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<bindings xmlns="http://java.sun.com/xml/ns/jaxb" if-exists="true" version="2.1">
+      
+    <!--
+
+Este archivo ha sido generado por la arquitectura JavaTM para la implantación de la referencia de enlace (JAXB) XML v2.3.0 
+Visite <a href="https://javaee.github.io/jaxb-v2/">https://javaee.github.io/jaxb-v2/</a> 
+Todas las modificaciones realizadas en este archivo se perderán si se vuelve a compilar el esquema de origen. 
+Generado el: 2023.05.31 a las 03:25:54 PM CST 
+
+  -->
+      
+    <bindings xmlns:tns="http://airopuerto.com/vuelos" if-exists="true" scd="x-schema::tns">
+            
+        <schemaBindings map="false">
+                  
+            <package name="com.example.consumingwebservice.wsdl"/>
+                
+        </schemaBindings>
+            
+        <bindings if-exists="true" scd="tns:EstadoRequest">
+                  
+            <class ref="com.example.consumingwebservice.wsdl.EstadoRequest"/>
+                
+        </bindings>
+            
+        <bindings if-exists="true" scd="tns:EstadoResponse">
+                  
+            <class ref="com.example.consumingwebservice.wsdl.EstadoResponse"/>
+                
+        </bindings>
+            
+        <bindings if-exists="true" scd="tns:ReservaRequest">
+                  
+            <class ref="com.example.consumingwebservice.wsdl.ReservaRequest"/>
+                
+        </bindings>
+            
+        <bindings if-exists="true" scd="tns:ReservaResponse">
+                  
+            <class ref="com.example.consumingwebservice.wsdl.ReservaResponse"/>
+                
+        </bindings>
+          
+    </bindings>
+    
+</bindings>

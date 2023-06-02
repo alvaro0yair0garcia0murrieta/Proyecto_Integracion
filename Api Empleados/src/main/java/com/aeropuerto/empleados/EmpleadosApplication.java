@@ -13,51 +13,44 @@ import org.springframework.web.bind.annotation.PatchMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.CrossOrigin;
 
 @RestController
 @SpringBootApplication
+@CrossOrigin(origins = "*")
 public class EmpleadosApplication {
 	@Autowired
 	private Repositorio repositorio;
 	public static void main(String[] args) {
 		SpringApplication.run(EmpleadosApplication.class, args);
 	}
-	//curl -X GET localhost:8080/
-	@GetMapping("/")
-	public String returnRoot(){
-		return "Esta es la raiz";
-	}
+	//curl -X GET localhost:8080/empleados
 
-	@GetMapping(value="/empleado")
+	@GetMapping(value="/empleados")
 	public List<Empleado> getMethodName() {
 		Iterable<Empleado> empleados = repositorio.findAll();
    		List<Empleado> empleadosList = new ArrayList<>();
    		empleados.forEach(empleadosList::add); 
 		return empleadosList;
 	}
-	@GetMapping(value = "/empleado/{nombre}")
+	@GetMapping(value = "/empleados/{nombre}")
 	public Empleado getAeropuertoByNombre(@PathVariable String nombre){
 		Empleado empleado = repositorio.findByNombre(nombre);
 		return empleado;
 	}
 	//no se pueden poner nombres iguales porque crachea la api
-	@PostMapping(value = "/empleado")
+	@PostMapping(value = "/empleados")
 	public Empleado postAeropuerto(@RequestBody Empleado empleado){
 		repositorio.save(empleado);
 		return empleado;
 	}
-	@DeleteMapping(value = "/empleado/{nombre}")
+	@DeleteMapping(value = "/empleados/{nombre}")
 	public Empleado deleteAeropuertoByNombre(@PathVariable String nombre){
 		Empleado empleado = repositorio.findByNombre(nombre);
 		repositorio.delete(empleado);
 		return empleado;
 	}
-	/*private String nombre;
-    private  String correo;
-    private  String numeroTefonico;
-    private String depatamento;
-    private String puesto; */
-	@PatchMapping(value = "/empleado/{nombre}")
+	@PatchMapping(value = "/empleados/{nombre}")
 	public Empleado PatchAeropuerto(@PathVariable String nombre,@RequestBody Empleado empleado){
 		Empleado empTemp = repositorio.findByNombre(nombre);
 		empTemp.setCorreo(empleado.getCorreo());

@@ -1,0 +1,165 @@
+<h1>Empleados</h1>
+    
+    <button id="btnObtenerEmpleados">Obtener Empleados</button>
+    
+    <h2>Agregar Empleados</h2>
+    <form id="formAgregarEmpleado">
+        <label for="nombre">Nombre:</label>
+        <input type="text" id="nombre" required>
+        <br>
+        <label for="descripcion">Descripción:</label>
+        <input type="text" id="descripcion" required>
+        <br>
+        <label for="ubicacion">Ubicación:</label>
+        <input type="text" id="ubicacion" required>
+        <br>
+        <button type="submit">Agregar</button>
+    </form>
+    
+    <h2>Eliminar Aeropuerto</h2>
+    <form id="formEliminarEmpleado">
+        <label for="nombreEliminar">Nombre:</label>
+        <input type="text" id="nombreEliminar" required>
+        <br>
+        <button type="submit">Eliminar</button>
+    </form>
+    
+    <h2>Modificar Aeropuerto</h2>
+    <form id="formModificarEmpleado">
+        <label for="nombreModificar">Nombre:</label>
+        <input type="text" id="nombreModificar" required>
+        <br>
+        <label for="nuevaDescripcion">Nueva Descripción:</label>
+        <input type="text" id="nuevaDescripcion">
+        <br>
+        <label for="nuevaUbicacion">Nueva Ubicación:</label>
+        <input type="text" id="nuevaUbicacion">
+        <br>
+        <button type="submit">Modificar</button>
+    </form>
+    
+    <div id="aeropuertosContainer"></div>
+    
+    <script>
+        document.getElementById('btnObtenerAeropuertos').addEventListener('click', obtenerAeropuertos);
+        document.getElementById('formAgregarAeropuerto').addEventListener('submit', agregarAeropuerto);
+        document.getElementById('formEliminarAeropuerto').addEventListener('submit', eliminarAeropuerto);
+        document.getElementById('formModificarAeropuerto').addEventListener('submit', modificarAeropuerto);
+        
+        function obtenerAeropuertos() {
+            fetch('http://localhost:8080/empleados')
+                .then(response => response.json())
+                .then(data => {
+                    const aeropuertosContainer = document.getElementById('aeropuertosContainer');
+                    aeropuertosContainer.innerHTML = '';
+                    
+                    data.forEach(aeropuerto => {
+                        const aeropuertoDiv = document.createElement('div');
+                        aeropuertoDiv.innerHTML = `
+                            <h3>${aeropuerto.nombre}</h3>
+                            <p>Descripción: ${aeropuerto.descripcion}</p>
+                            <p>Ubicación: ${aeropuerto.ubicacion}</p>
+                        `;
+                        aeropuertosContainer.appendChild(aeropuertoDiv);
+                    });
+                })
+                .catch(error => {
+                    console.error('Error al obtener aeropuertos:', error);
+                });
+        }
+        
+        function agregarAeropuerto(event) {
+            event.preventDefault();
+            
+            const nombre = document.getElementById('nombre').value;
+            const descripcion = document.getElementById('descripcion').value;
+            const ubicacion = document.getElementById('ubicacion').value;
+            
+            const data = {
+                nombre: nombre,
+                descripcion: descripcion,
+                ubicacion: ubicacion
+            };
+            
+            fetch('http://localhost:8080/empleados', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(data)
+            })
+                .then(response => {
+                    if (response.ok) {
+                        obtenerAeropuertos();
+                        document.getElementById('nombre').value = '';
+                        document.getElementById('descripcion').value = '';
+                        document.getElementById('ubicacion').value = '';
+                    } else {
+                        console.error('Error al agregar aeropuerto:', response.status, response.statusText);
+                    }
+                })
+                .catch(error => {
+                    console.error('Error al agregar aeropuerto:', error);
+                });
+        }
+        
+        function eliminarAeropuerto(event) {
+            event.preventDefault();
+            
+            const nombre = document.getElementById('nombreEliminar').value;
+            
+            fetch(`http://localhost:8080/empleados/${nombre}`, {
+                method: 'DELETE'
+            })
+                .then(response => {
+                    if (response.ok) {
+                        obtenerAeropuertos();
+                        document.getElementById('nombreEliminar').value = '';
+                    } else {
+                        console.error('Error al eliminar aeropuerto:', response.status, response.statusText);
+                    }
+                })
+                .catch(error => {
+                    console.error('Error al eliminar aeropuerto:', error);
+                });
+        }
+        
+        function modificarAeropuerto(event) {
+            event.preventDefault();
+            
+            const nombre = document.getElementById('nombreModificar').value;
+            const nuevaDescripcion = document.getElementById('nuevaDescripcion').value;
+            const nuevaUbicacion = document.getElementById('nuevaUbicacion').value;
+            
+            const data = {};
+            
+            if (nuevaDescripcion) {
+                data.descripcion = nuevaDescripcion;
+            }
+            
+            if (nuevaUbicacion) {
+                data.ubicacion = nuevaUbicacion;
+            }
+            
+            fetch(`http://localhost:8080/empleados/${nombre}`, {
+                method: 'PATCH',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(data)
+            })
+                .then(response => {
+                    if (response.ok) {
+                        obtenerAeropuertos();
+                        document.getElementById('nombreModificar').value = '';
+                        document.getElementById('nuevaDescripcion').value = '';
+                        document.getElementById('nuevaUbicacion').value = '';
+                    } else {
+                        console.error('Error al modificar aeropuerto:', response.status, response.statusText);
+                    }
+                })
+                .catch(error => {
+                    console.error('Error al modificar aeropuerto:', error);
+                });
+        }
+    </script>
