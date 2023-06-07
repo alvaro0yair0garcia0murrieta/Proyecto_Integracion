@@ -34,8 +34,21 @@ servicio web soap para el registro de pasajeros a un vuelo:
   
   para servicio de aeoroueto
 ```bash
-  cd Proyecto_Integracion\Api Aeropuerto
+ cd proyecto_integracion
   ./mvnw spring-boot:run
 ```
+si no hay errores se accede la rais en http://localhost:8082/
 
+ para servicio de empleados
+```bash
+ cd proyecto_integracion/api empleados 
+  ./mvnw spring-boot:run
+```
+si no hay errores se accede la rais en http://localhost:8083/
 
+ para servicio de vuelos
+```bash
+ cd proyecto_integracion/api_vuelos
+  ./mvnw spring-boot:run
+```
+si no hay errores se accede la rais en http://localhost:8080/ws/vuelos.wsdl
