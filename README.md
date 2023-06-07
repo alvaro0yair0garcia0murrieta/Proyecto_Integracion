@@ -1,7 +1,7 @@
 # Proyecto_Integracion
 
 bievenidos a este proyecto se trata de un sistema de administracion de aerouertos el cual consta de 3 servicios web: 
-api rest para control de empleados 
+api rest para control de empleados, 
 api rest para control de estableciento de aeropuerto
 y servicio web soap para el registro de pasajeros a un vuelo
 
@@ -22,3 +22,20 @@ api rest para control de estableciento de aeropuerto:
 
 servicio web soap para el registro de pasajeros a un vuelo:
 (https://vuelosapirailway-production.up.railway.app/ws/vuelos.wsdl)
+
+## uso local
+### requisitos
+ - clonar repositorio via git hub
+ - mysql service
+ - java 17 o mayor
+ - configracion inicial de la base de datos (ejecutar el SETUB_DB.sql)
+ ### iniciar servicios
+ descomprimir zip
+  
+  para servicio de aeoroueto
+```bash
+  cd Proyecto_Integracion\Api Aeropuerto
+  ./mvnw spring-boot:run
+```
+
+
